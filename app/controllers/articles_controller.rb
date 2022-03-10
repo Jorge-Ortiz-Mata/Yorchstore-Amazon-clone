@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+
+  before_action :user?
   before_action :set_article, only: %i[ show edit update destroy ]
 
   # GET /articles/1 or /articles/1.json
@@ -12,6 +14,7 @@ class ArticlesController < ApplicationController
   # POST /articles or /articles.json
   def create
     @article = Article.new(article_params)
+    @article.user_id = current_user.id 
 
     respond_to do |format|
       if @article.save
@@ -39,7 +42,7 @@ class ArticlesController < ApplicationController
     @article.destroy
 
     respond_to do |format|
-      format.html { redirect_to articles_url, notice: "Article was successfully destroyed." }
+      format.html { redirect_to root_path, notice: "Article was successfully destroyed." }
     end
   end
 

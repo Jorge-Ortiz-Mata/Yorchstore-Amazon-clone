@@ -1,4 +1,5 @@
 class Article < ApplicationRecord
+    belongs_to :user
     has_many_attached :images
     after_create_commit {broadcast_prepend_to "articles"}
     after_update_commit {broadcast_replace_to "articles"}
