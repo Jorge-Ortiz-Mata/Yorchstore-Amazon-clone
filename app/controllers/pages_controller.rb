@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   def home
-    @articles = Article.all
+    @articles = Article.order('created_at DESC')
     @article = Article.new
   end
 

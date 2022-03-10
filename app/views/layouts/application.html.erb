@@ -11,6 +11,22 @@
   </head>
 
   <body>
+
+    <header>
+      <%= render 'shared/header' %>
+    </header>
+
+    <% if notice %>
+      <%= render 'shared/notice' %>
+    <% elsif alert %>
+      <%= render 'shared/alert' %>
+    <% end %>
+
+
     <%= yield %>
+
+    <footer>
+    </footer>
+
   </body>
 </html>
