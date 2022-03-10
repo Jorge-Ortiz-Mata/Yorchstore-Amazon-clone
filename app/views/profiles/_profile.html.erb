@@ -10,6 +10,13 @@
   </p>
 
   <p>
+  <%= image_tag(profile.avatar, width: 200 ) if profile.avatar.attached? %>
+      <% if !profile.avatar.attached? %>
+        <img src="<%= asset_path( 'no-profile.png' ) %>" width= "200px">
+      <% end %>
+  </p>
+
+  <p>
     <strong>Location:</strong>
     <%= profile.location %>
   </p>
@@ -32,6 +39,11 @@
   <p>
     <strong>Bank money:</strong>
     <%= profile.bank_money %>
+  </p>
+
+  <p>
+    <strong>User card:</strong>
+    <%= profile.user_card %>
   </p>
 
   <p>

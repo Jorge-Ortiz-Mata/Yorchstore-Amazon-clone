@@ -15,6 +15,11 @@
   </p>
 
   <p>
+    <strong>Stock:</strong>
+    <%= article.stock %>
+  </p>
+
+  <p>
     <% for i in 0...article.images.length %>
       <%= image_tag(article.images[i], width: 100) %>
     <% end %>

@@ -27,6 +27,11 @@
   </div>
 
   <div>
+    <%= form.label 'Amount of articles', style: "display: block" %>
+    <%= form.number_field :stock %>
+  </div>
+
+  <div>
     <%= form.file_field :images, multiple: true %>
   </div>
 

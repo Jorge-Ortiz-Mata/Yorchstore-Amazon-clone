@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
 
   before_action :user?
+  before_action :user_profile
   before_action :set_article, only: %i[ show edit update destroy ]
 
   # GET /articles/1 or /articles/1.json
@@ -54,6 +55,6 @@ class ArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:title, :description, :price, images: [])
+      params.require(:article).permit(:title, :description, :stock, :price, images: [])
     end
 end

@@ -27,6 +27,11 @@
   </div>
 
   <div>
+    <%= form.label 'Photo profile', style: "display: block" %>
+    <%= form.file_field :avatar %>
+  </div>
+
+  <div>
     <%= form.label :genre, style: "display: block" %>
     <%= form.text_field :genre %>
   </div>
@@ -42,13 +47,13 @@
   </div>
 
   <div>
-    <%= form.label :bank_money, style: "display: block" %>
-    <%= form.text_field :bank_money %>
+    <%= form.label :user_card, style: "display: block" %>
+    <%= form.text_field :user_card %>
   </div>
 
   <div>
     <%= form.label :birth, style: "display: block" %>
-    <%= form.datetime_field :birth %>
+    <%= form.date_field :birth %>
   </div>
 
   <div>
