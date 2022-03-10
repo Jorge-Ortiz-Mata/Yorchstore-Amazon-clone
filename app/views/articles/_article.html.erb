@@ -1,4 +1,4 @@
-<div id="<%= dom_id article %>">
+<%= turbo_frame_tag dom_id(article) do %>
   <p>
     <strong>Title:</strong>
     <%= article.title %>
@@ -14,4 +14,9 @@
     <%= article.price %>
   </p>
 
-</div>
+  <div>
+    <%= link_to "Edit article", edit_article_path(article) %>
+    <%= button_to "Delete article", article, method: :delete, form: {data: {turbo_confirm: "Are you sure?"}} %>
+  </div>
+
+<% end %>

@@ -1,2 +1,22 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%= turbo_stream_from "articles" %>
+<h1>Yorchstore</h1>
+<div>
+    <h3>
+        Create a new post:
+    </h3>
+    <div>
+        <%= turbo_frame_tag "article_form" do %>
+            <%= render "articles/form", article: @article %>
+        <% end %>
+    </div>
+</div>
+<div>
+    <h3>
+        All articles.
+    </h3>
+    <div>
+        <%= turbo_frame_tag "articles" do %>
+            <%= render @articles %>
+        <% end %>
+    </div>
+</div>
