@@ -11,12 +11,18 @@ class Profile < ApplicationRecord
     validates :bank_money, presence: true
     validates :user_card, presence: true
     validates :birth, presence: true
+
+    # Personal validations.
     validate :user_card_field
 
-    def user_card_field
-        if !(user_card === 'Seller' || user_card === 'Buyer')
-            errors.add(:user_card, "must be either 'Seller' or 'Buyer'.")
+    # Personal methods validations.
+
+    # ---- User card -----.
+        def user_card_field
+            if !(user_card === 'Seller' || user_card === 'Buyer')
+                errors.add(:user_card, "must be either 'Seller' or 'Buyer'.")
+            end
         end
-    end
+    # -------------------.
 
 end
