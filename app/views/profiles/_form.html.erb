@@ -48,7 +48,10 @@
 
   <div>
     <%= form.label :user_card, style: "display: block" %>
-    <%= form.text_field :user_card %>
+    <%= form.radio_button :user_card, "Buyer" %>
+    <%= form.label "Buyer" %> |
+    <%= form.radio_button :user_card, "Seller" %>
+    <%= form.label "Seller" %>
   </div>
 
   <div>

@@ -22,24 +22,25 @@ class ProfilesController < ApplicationController
     @profile.user_id = current_user.id
     @profile.bank_money = 4950.00
 
-    respond_to do |format|
-      if @profile.save
-        format.html { redirect_to profile_url(@profile), notice: "Profile was successfully created." }
-      else
-        format.html { render :new, status: :unprocessable_entity }
+      respond_to do |format|
+        if @profile.save
+          format.html { redirect_to profile_url(@profile), notice: "Profile was successfully created. Card: #{@user_card_valid}" }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+        end
       end
-    end
+    # end
   end
 
   # PATCH/PUT /profiles/1 or /profiles/1.json
   def update
-    respond_to do |format|
-      if @profile.update(profile_params)
-        format.html { redirect_to profile_url(@profile), notice: "Profile was successfully updated." }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
+      respond_to do |format|
+        if @profile.update(profile_params)
+          format.html { redirect_to profile_url(@profile), notice: "Profile was successfully updated." }
+        else
+          format.html { render :edit, status: :unprocessable_entity }
+        end
       end
-    end
   end
 
   private
