@@ -15,4 +15,10 @@ class ApplicationController < ActionController::Base
             end
         end
 
+        def user_is_a_buyer?
+            if current_user.profile.user_card === 'Buyer'
+                redirect_to root_path, alert: "You're not allowed to do this action. You are a buyer."
+            end
+        end
+
 end

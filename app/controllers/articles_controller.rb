@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
 
   before_action :user?
   before_action :user_profile
+  before_action :user_is_a_buyer?
   before_action :set_article, only: %i[ show edit update destroy ]
 
   # GET /articles/1 or /articles/1.json
