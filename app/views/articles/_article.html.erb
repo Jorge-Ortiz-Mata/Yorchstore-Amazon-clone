@@ -1,4 +1,4 @@
-<%= turbo_frame_tag dom_id(article) do %>
+<div id="<%= dom_id article %>">
 <br>
   <p>
     <strong>Title:</strong>
@@ -21,14 +21,18 @@
   </p>
 
   <p>
+    <strong>Author:</strong>
+    <%= article.user.profile.first_name %> <%= article.user.profile.last_name %>
+  </p>
+
+  <p>
     <% for i in 0...article.images.length %>
       <%= image_tag(article.images[i], width: 100) %>
     <% end %>
   </p>
 
   <div>
-    <%= link_to "Edit article", edit_article_path(article) %>
-    <%= button_to "Delete article", article, method: :delete, form: {data: {turbo_confirm: "Are you sure?"}} %>
+
+
   </div>
 <br>
-<% end %>

@@ -5,6 +5,10 @@ class ArticlesController < ApplicationController
   before_action :user_is_a_buyer?
   before_action :set_article, only: %i[ show edit update destroy ]
 
+  def new
+    @article = Article.new
+  end
+
   # GET /articles/1 or /articles/1.json
   def show
   end
@@ -20,9 +24,8 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to root_path, notice: "Article was successfully created." }
+        format.html { redirect_to root_path }
       else
-        format.turbo_stream { render turbo_stream: turbo_stream.replace(@article, partial: "articles/form", locals: { article: @article })}
         format.html { render :new, status: :unprocessable_entity }
       end
     end
@@ -32,8 +35,9 @@ class ArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @article.update(article_params)
-        format.html { redirect_to root_path, notice: "Article was successfully updated." }
+        format.html { redirect_to root_path }
       else
+        format.turbo_stream { render turbo_stream: turbo_stream.replace(@article, partial: "articles/form", locals: { article: @article })}
         format.html { render :edit, status: :unprocessable_entity }
       end
     end
@@ -44,7 +48,14 @@ class ArticlesController < ApplicationController
     @article.destroy
 
     respond_to do |format|
-      format.html { redirect_to root_path, notice: "Article was successfully destroyed." }
+      format.html { redirect_to root_path }
+    end
+  end
+
+  def addCar
+    @article = Article.new(title: 'New article created by clicking on add car link.')
+    if @article.save
+      redirect_to root_path
     end
   end
 

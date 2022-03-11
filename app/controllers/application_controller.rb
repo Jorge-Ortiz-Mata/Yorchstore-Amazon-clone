@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-    helper_method :user?
+    helper_method :user?, :user_profile, :user_is_a_buyer?
 
     private 
         def user?
