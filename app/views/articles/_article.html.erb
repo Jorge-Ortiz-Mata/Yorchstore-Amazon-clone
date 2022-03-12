@@ -31,8 +31,11 @@
     <% end %>
   </p>
 
-  <div>
-
-
-  </div>
+    <p>
+      <% if article.user == @current_user_and_article %>
+        <%= link_to "Edit this article", edit_article_path(article) %>
+        <%= button_to "Delete article", article, method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}} %>
+      <% end %>
+    </p>
 <br>
+</div>

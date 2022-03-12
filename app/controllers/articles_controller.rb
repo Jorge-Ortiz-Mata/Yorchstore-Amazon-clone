@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
 
   before_action :user?
+  before_action :current_user_and_article
   before_action :user_profile
   before_action :user_is_a_buyer?
   before_action :set_article, only: %i[ show edit update destroy ]
@@ -49,13 +50,6 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to root_path }
-    end
-  end
-
-  def addCar
-    @article = Article.new(title: 'New article created by clicking on add car link.')
-    if @article.save
-      redirect_to root_path
     end
   end
 

@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
-  #get 'addToCar', to: 
-  get 'addCar', to: 'articles#addCar'
+
 
   # Profile resources.
   resources :profiles

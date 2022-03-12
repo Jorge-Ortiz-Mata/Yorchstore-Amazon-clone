@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-    helper_method :user?, :user_profile, :user_is_a_buyer?
+    helper_method :user?, :user_profile, :user_is_a_buyer?, :current_user_and_article
 
     private 
         def user?
@@ -21,4 +21,7 @@ class ApplicationController < ActionController::Base
             end
         end
 
+        def current_user_and_article
+            @current_user_and_article = current_user
+        end
 end
