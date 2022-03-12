@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action :user?
   before_action :current_user_and_article
   before_action :user_profile
-  before_action :user_is_a_buyer?
+  before_action :user_is_a_buyer?, except: [:show]
   before_action :set_article, only: %i[ show edit update destroy ]
 
   def new
@@ -12,6 +12,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1 or /articles/1.json
   def show
+    @order = Order.new
   end
 
   # GET /articles/1/edit

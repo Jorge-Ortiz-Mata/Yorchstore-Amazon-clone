@@ -1,5 +1,10 @@
 <%= render @article %>
-
+ <div>
+  <%= render 'orders/form' %>
+ </div>
+<div>
+  <%#= link_to "Remove article", remove_from_my_car_path(article: @article), method: :delete %>
+</div>
 <div>
   <%= link_to "Back", root_path %>
 </div>

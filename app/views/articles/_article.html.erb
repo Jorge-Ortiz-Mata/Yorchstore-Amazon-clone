@@ -1,6 +1,10 @@
 <div id="<%= dom_id article %>">
 <br>
   <p>
+    <strong>ID:</strong>
+    <%= article.id %>
+  </p>
+  <p>
     <strong>Title:</strong>
     <%= article.title %>
   </p>
@@ -35,7 +39,8 @@
       <% if article.user == @current_user_and_article %>
         <%= link_to "Edit this article", edit_article_path(article) %>
         <%= button_to "Delete article", article, method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}} %>
+      <% else %>
+        <%= link_to "Show", article if !(request.path === article_path(article)) %>
       <% end %>
     </p>
-<br>
 </div>
