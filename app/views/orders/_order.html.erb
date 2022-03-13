@@ -12,8 +12,22 @@
         <%= order.product_description %>
     </p>
     <p>
+        <strong>Uniqueness price:</strong>
+        <%= order.article.price %>
+    </p>
+    <p>
         <strong>Quantity:</strong>
         <%= order.quantity %>
     </p>
+    <p>
+        <strong>Total price:</strong>
+        <%= order.total_price %>
+    </p>
+    <div>
+        <%= button_to "Buy now!", '#', form: {data: {turbo_confirm: "Are you sure you want to buy this product? ID: #{order.id}. Article: #{order.product_title}. Quantity: #{order.quantity}. Total purchase: #{order.total_price}"}} %>
+    </div>
+    <div>
+        <%= button_to "Remove article", remove_from_my_car_path(order: order), method: :delete, form: {data: {turbo_confirm: "Are you sure you want to remove this article from your car?"}} %>
+    </div>
 </div>
 <br>

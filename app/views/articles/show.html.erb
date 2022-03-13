@@ -1,11 +1,10 @@
 <%= turbo_stream_from "articles" %>
 <%= render @article %>
+<% if @article.user != current_user %>
  <div>
   <%= render 'orders/form' %>
  </div>
-<div>
-  <%#= link_to "Remove article", remove_from_my_car_path(article: @article), method: :delete %>
-</div>
+ <% end %>
 <div>
   <%= link_to "Back", root_path %>
 </div>

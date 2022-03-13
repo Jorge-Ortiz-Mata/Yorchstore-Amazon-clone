@@ -1,0 +1,54 @@
+<div id="<%= dom_id user %>">
+  <p>
+    <strong>First name:</strong>
+    <%= user.first_name %>
+  </p>
+
+  <p>
+    <strong>Last name:</strong>
+    <%= user.last_name %>
+  </p>
+
+  <p>
+  <%= image_tag(user.avatar, width: 200 ) if user.avatar.attached? %>
+      <% if !user.avatar.attached? %>
+        <img src="<%= asset_path( 'no-profile.png' ) %>" width= "200px">
+      <% end %>
+  </p>
+
+  <p>
+    <strong>Location:</strong>
+    <%= user.location %>
+  </p>
+
+  <p>
+    <strong>Genre:</strong>
+    <%= user.genre %>
+  </p>
+
+  <p>
+    <strong>Cellphone:</strong>
+    <%= user.cellphone %>
+  </p>
+
+  <p>
+    <strong>Bank account:</strong>
+    <%= user.bank_account %>
+  </p>
+
+  <p>
+    <strong>Bank money:</strong>
+    <%= user.bank_money %>
+  </p>
+
+  <p>
+    <strong>User card:</strong>
+    <%= user.user_card %>
+  </p>
+
+  <p>
+    <strong>Birth:</strong>
+    <%= user.birth %>
+  </p>
+
+</div>
