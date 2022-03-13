@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
     before_action :user_profile
 
     def car
-        @orders = Order.where(" user_id like ? ", current_user.id)
+        @orders = current_user.orders
     end
 
     def create 
