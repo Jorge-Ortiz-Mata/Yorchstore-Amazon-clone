@@ -3,3 +3,7 @@
 <div>
   <%= link_to "Edit this profile", edit_profile_path(@profile) %> | <%= link_to "Edit account", edit_user_registration_path %>
 </div>
+
+<% current_user.articles.each do |article| %>
+  <%= render 'articles/article', article: article %>
+<% end %>
