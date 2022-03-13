@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
         @var_y = @article.stock + @order.quantity 
         @article.update(stock: @var_y)
         @order.destroy
-        redirect_to root_path, notice: "You've removed the order: #{@order.id}, from your car. Article title: #{@article.title}, Article description: #{@article.description}"
+        # redirect_to car_path, notice: "You've removed the order: #{@order.id}, from your car. Article title: #{@article.title}, Article description: #{@article.description}"
     end
 
 end
