@@ -1,9 +1,17 @@
 <%= turbo_stream_from "articles" %>
 <%= render @article %>
-<% if @article.user != current_user %>
+<% if @article.user != current_user && @article.stock > 0 %>
  <div>
   <%= render 'orders/form' %>
  </div>
+ <% elsif @article.user == current_user %>
+    <div>
+      You own this article.
+    </div>
+<% elsif @article.stock <= 0 %>
+    <div>
+        There aren´t many articles in stock.
+    </div>
  <% end %>
 <div>
   <%= link_to "Back", root_path %>

@@ -28,6 +28,20 @@ class OrdersController < ApplicationController
         end
     end
 
+    def buy
+        @order = Order.find(params[:order])
+        @user_money = current_user.profile.bank_money
+        if @user_money > @order.total_price
+            @var_z = @user_money - @order.total_price
+            current_user.profile.update(bank_money: @var_z)
+            @order.destroy
+            redirect_to car_path, notice: "You've bought: Article ID: #{@order.article.id}. Article title: #{@order.article.title}. Article description: #{@order.article.description}. Order ID: #{@order.id}. Quantity:#{@order.quantity} .Total purchase: #{@order.total_price}"
+
+        else
+            redirect_to car_path, alert: "You don't have enough money in your bank account."
+        end
+    end
+
 
     def destroy
         @order = Order.find(params[:order])
@@ -35,7 +49,7 @@ class OrdersController < ApplicationController
         @var_y = @article.stock + @order.quantity 
         @article.update(stock: @var_y)
         @order.destroy
-        # redirect_to car_path, notice: "You've removed the order: #{@order.id}, from your car. Article title: #{@article.title}, Article description: #{@article.description}"
+        redirect_to car_path, notice: "You've removed the order: #{@order.id}, from your car. Article title: #{@article.title}, Article description: #{@article.description}"
     end
 
 end

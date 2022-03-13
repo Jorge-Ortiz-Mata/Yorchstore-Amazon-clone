@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   get 'my_products', to: 'products#index'
 
   # Orders resources.
+  get 'car', to: 'orders#car'
+  get 'buy', to: 'orders#buy'
   get 'add_to_my_car', to: 'orders#create'
   delete 'remove_from_my_car', to: 'orders#destroy'
-  get 'car', to: 'orders#car'
 
   # Profile resources.
   resources :profiles
