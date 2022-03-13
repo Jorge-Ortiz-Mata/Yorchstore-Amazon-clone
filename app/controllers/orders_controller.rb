@@ -4,6 +4,10 @@ class OrdersController < ApplicationController
     before_action :current_user_and_article
     before_action :user_profile
 
+    def car
+        @orders = Order.where(" user_id like ? ", current_user.id)
+    end
+
     def create 
         @article = Article.find(params[:article].to_i)
         @quantity_request = params[:quantity].to_i
@@ -13,7 +17,7 @@ class OrdersController < ApplicationController
                 if @order.save
                     @var_x = @article.stock - @quantity_request
                     @article.update(stock: @var_x)
-                    redirect_to @article, notice: "Article added to your car. #{@var_x}"
+                    redirect_to @article, notice: "Article added to your car. You have 5 minutes in order to make the purchase."
                 end
             else
                 redirect_to @article, alert: "There aren't many items in stock. Come back later."
