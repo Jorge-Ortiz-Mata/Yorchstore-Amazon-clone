@@ -1,54 +1,69 @@
-<div id="<%= dom_id profile %>">
-  <p>
-    <strong>First name:</strong>
-    <%= profile.first_name %>
-  </p>
+<div class="profileCard">
+  <div id="<%= dom_id profile %>">
+    <div class="sectionProfileCard">
+      <div class="image">
+        <%= image_tag(profile.avatar, width: 200, class:"roundedImageProfile" ) if profile.avatar.attached? %>
+          <% if !profile.avatar.attached? %>
+            <img src="<%= asset_path( 'no-profile.png' ) %>" width= "200px">
+          <% end %>
+      </div>
+      <div class="content">
+        <br>
+        <div class="userHeade">
+          <%= profile.first_name %> <%= profile.last_name %>
+        </div>
+        <br>
+        <div class="meta">
+          Email: <b><%= profile.user.email %></b>
+        </div>
+        <br>
+        <div class="description center">
+          <p>
+            <strong>Location:</strong>
+            <%= profile.location %>
+          </p>
 
-  <p>
-    <strong>Last name:</strong>
-    <%= profile.last_name %>
-  </p>
+          <p>
+            <strong>Genre:</strong>
+            <%= profile.genre %>
+          </p>
 
-  <p>
-    <%= image_tag(profile.avatar, width: 200 ) if profile.avatar.attached? %>
-      <% if !profile.avatar.attached? %>
-        <img src="<%= asset_path( 'no-profile.png' ) %>" width= "200px">
-      <% end %>
-  </p>
+          <p>
+            <strong>Cellphone:</strong>
+            <%= profile.cellphone %>
+          </p>
 
-  <p>
-    <strong>Location:</strong>
-    <%= profile.location %>
-  </p>
+          <p>
+            <strong>Bank account:</strong>
+            <%= profile.bank_account %>
+          </p>
 
-  <p>
-    <strong>Genre:</strong>
-    <%= profile.genre %>
-  </p>
+          <p>
+            <strong>Bank money:</strong>
+            <%= profile.bank_money %>
+          </p>
 
-  <p>
-    <strong>Cellphone:</strong>
-    <%= profile.cellphone %>
-  </p>
+          <p>
+            <strong>User card:</strong>
+            <%= profile.user_card %>
+          </p>
 
-  <p>
-    <strong>Bank account:</strong>
-    <%= profile.bank_account %>
-  </p>
-
-  <p>
-    <strong>Bank money:</strong>
-    <%= profile.bank_money %>
-  </p>
-
-  <p>
-    <strong>User card:</strong>
-    <%= profile.user_card %>
-  </p>
-
-  <p>
-    <strong>Birth:</strong>
-    <%= profile.birth %>
-  </p>
-
+          <p>
+            <strong>Birth:</strong>
+            <%= profile.birth %>
+          </p>
+          <br>
+          <div>
+            <%= link_to "Profile settings", edit_profile_path(profile), class:"ui teal button" %>| <%= link_to "Account settings", edit_user_registration_path, class:"ui blue button" %>
+          </div>
+        </div>
+        <br>
+        <div class="extra content">
+          <span class="right floated">
+            <small>Joined: <b><%= time_ago_in_words(profile.created_at) %></b></small>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

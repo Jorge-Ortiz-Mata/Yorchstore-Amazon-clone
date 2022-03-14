@@ -14,6 +14,12 @@
  *= require_self
  */
 
+.messagesUser{
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+}
+
 .firstSection{
     color: #ffffff;
     height: 600px;
@@ -45,8 +51,56 @@
     font-size: 45px;
 }
 
+.headerCard{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.articleAttributes{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.roundedImage{
+    border-radius: 50px;
+}
+
+.roundedImageProfile{
+    border-radius: 100px;
+}
+
+.centerArticles{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .cancelButton{
     display: flex;
     justify-content: center;
+}
+
+.cardProfile{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 250, 213);
+}
+
+.profileCard{
+    margin: auto auto 50px auto;
+}
+
+.sectionProfileCard{
+    margin: 50px auto auto auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.userHeade{
+    font-weight: 700;
+    font-size: 30px;
 }

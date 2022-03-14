@@ -1,75 +1,70 @@
 <div id="<%= dom_id article %>">
-  <div class="ui raised card" style="width: 500px;">
-    <div class="content">
-      <br>
-        <div class="header">
-          <p>
-            <strong>Title:</strong>
-            <%= article.title %>
-          </p>
+  <div class="ui items">
+    <div class="item">
+      <div class="ui small image">
+        <% if article.images.present? %>
+          <%= image_tag(article.images[0]) %>
+        <% else %>
+          <img src="<%= asset_path( 'item.png' ) %>">
+        <% end %>
+      </div>
+      <div class="middle aligned content">
+        <div>
+          <div>
+            <div class="header">
+              Article: <strong><%= article.title %></strong>
+            </div>
+            <p>
+              <small><strong>ID:</strong> <%= article.id %></small>
+            </p>
+          </div>
+          <div>
+            <p>
+              <%= link_to "Show", article, class:"ui teal button"  if !(request.path === article_path(article)) %>
+            </p>
+          </div>
         </div>
-
-        <div class="meta">
-          <p class="category">
-            <strong>ID:</strong>
-            <%= article.id %>
-          </p>
-        </div>
-
         <div class="description">
           <p>
-            <strong>Description:</strong>
-            <%= article.description %>
+            <strong>Description:</strong> <%= article.description %>
           </p>
-        </div>
-
-        <p class="ui tag labels">
-          <strong>Price:</strong>
-          <span class="ui label"><%= article.price %></span>
-        </p>
-
-        <p>
-          <strong>Stock:</strong>
-          <span class="ui label"><%= article.stock %></span>
-        </p>
-
-        <p>
-          <% if article.stock > 0 %>
-            <a class="ui green label">Available.</a>
-          <% else %>
-            <a class="ui red label">Unavailable.</a>
-          <% end %>
-        </p>
-
-        <p>
-          <% for i in 0...article.images.length %>
-            <%= image_tag(article.images[i], width: 100) %>
-          <% end %>
-        </p>
-
-        <div class="extra content">
+          <div class="articleAttributes">
+            <p>
+              <% if article.stock > 0 %>
+                <span class="ui green label">Available.</span>
+              <% else %>
+                <span class="ui red label">Unavailable.</span>
+              <% end %>
+            </p>
+            <p class="ui tag labels">
+              <strong>Price:</strong>
+              <span class="ui label"><%= article.price %></span>
+            </p>
+            
+            <p>
+              <strong>Stock:</strong>
+              <span class="ui label"><%= article.stock %></span>
+            </p>
+          </div>
           <p>
-            <strong>Seller:</strong>
-            <div class="ui list">
-              <div class="item" style="display:flex;">
-                <div>
-                  <%= image_tag(article.user.profile.avatar, width: 50 ) if article.user.profile.avatar.attached? %>
-                  <% if !article.user.profile.avatar.attached? %>
-                    <img src="<%= asset_path( 'no-profile.png' ) %>" width= "50px" >
-                  <% end %>
-                </div>
-                <div class="content" style="margin: auto auto auto 10px">
-                  <span class="header"><%= article.user.profile.first_name %> <%= article.user.profile.last_name %></span>
-                  <div class="description">Created: <b><%= time_ago_in_words(article.created_at) %>.</b></div>
+              <div class="ui list">
+                <div class="item" style="display:flex;">
+                  <div>
+                    <%= image_tag(article.user.profile.avatar, width: 50, class:"roundedImage" ) if article.user.profile.avatar.attached? %>
+                    <% if !article.user.profile.avatar.attached? %>
+                      <img src="<%= asset_path( 'no-profile.png' ) %>" width= "50px" >
+                    <% end %>
+                  </div>
+                  <div class="content" style="margin: auto auto auto 10px">
+                    <span class="header"><%= link_to "#{article.user.profile.first_name} #{article.user.profile.last_name}", profile_path(article.user.profile) %></span>
+                    <small><div class="description">Created: <b><%= time_ago_in_words(article.created_at) %>.</b></div></small>
+                  </div>
                 </div>
               </div>
-            </div>
-          </p>
-          <p>
-            <%= link_to "Show", article if !(request.path === article_path(article)) %>
-          </p>
+            </p>
         </div>
       </div>
     </div>
   </div>
-<br>
+</div>
+<br><br>
