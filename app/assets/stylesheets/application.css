@@ -13,3 +13,40 @@
  *= require_tree .
  *= require_self
  */
+
+.firstSection{
+    color: #ffffff;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    background-image: url(yorch-store.png);
+    background-attachment: fixed;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: soft-light;
+    background-color: #000000cf;
+}
+
+.mainDescription{
+    margin: 150px auto auto auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.mainDescription p{
+    margin: 5px auto auto auto;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.firstSectionTitle{
+    margin: auto auto 50px auto;
+    font-size: 45px;
+}
+
+
+.cancelButton{
+    display: flex;
+    justify-content: center;
+}

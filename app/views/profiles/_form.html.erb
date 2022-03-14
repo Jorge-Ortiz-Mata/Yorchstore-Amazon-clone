@@ -12,7 +12,9 @@
       </ul>
     </div>
   <% end %>
+
   <br>
+
   <div class="fields">
     <div class="field">
       <%= form.label :first_name, style: "display: block" %>
@@ -37,8 +39,8 @@
 
   <div class="fields">
     <div class="field">
-      <%= form.label :genre, style: "display: block" %>
-      <%= form.text_field :genre %>
+      <%= form.label :genre, style: "display: block", class:"mb-3" %>
+      <%= form.select :genre, ["Male", "Female"], class: "" %>
     </div>
 
     <div class="field">
@@ -52,27 +54,29 @@
     <%= form.text_field :bank_account %>
   </div>
 
+  <div class="field">
     <%= form.label :user_card, style: "display: block" %>
-    <div class="field">
-      <div class="ui radio checkbox">
-        <%= form.radio_button :user_card, "Buyer" %>
-        <%= form.label "Buyer" %>
-      </div>
+    <div class="ui radio checkbox">
+      <%= form.radio_button :user_card, "Buyer" %>
+      <%= form.label "Buyer" %>
     </div>
     <div class="field">
       <div class="ui radio checkbox">
       <%= form.radio_button :user_card, "Seller" %>
       <%= form.label "Seller" %>
-      </div>
+    </div>
   </div>
 
   <div class="field">
     <%= form.label :birth, style: "display: block" %>
     <%= form.date_field :birth %>
   </div>
+
   <br>
+
   <div class="field" style="text-align:center">
     <%= form.submit class:"ui green button" %>
   </div>
+  
 <% end %>
 </div>

@@ -1,17 +1,37 @@
 <%= turbo_stream_from "articles" %>
-<h1>Yorchstore</h1>
-<% if current_user.profile.user_card == "Seller" %>
+<section class="firstSection">
+    <div class="mainDescription">
+        <h1 class="firstSectionTitle">
+            Yorchstore
+        </h1>
+        <p>
+            Amazon clone created using Ruby on Rails 7 and Semantic UI.
+        </p>
+        <br>
+        <p>
+            Jorge Ortiz Mata
+        </p>
+        <p>
+            Robotics engineer, entrepreneur and teacher.
+        </p>
+        <br>
+        <% if current_user.profile.user_card == "Seller" %>
+            <p>
+                Want sell something? <br> 
+            </p>
+            <br>
+            <p>
+                <%= link_to "New article", new_article_path, class:"ui green button" %>
+            </p>
+        <% end %>
+    </div>
+</section>
+<br><br>
 <div>
-    <p>
-        Want sell something? <%= link_to "New article", new_article_path %>
-    </p>
-</div>
-<% end %>
-<br>
-<div>
-    <h3>
-        All articles.
-    </h3>
+    <h2 class="ui center aligned icon header">
+        <i class="circular shopping bag icon"></i>
+        Articles
+    </h2>
     <div id="articles">
         <% @articles.each do |article| %>
             <%= render article %>

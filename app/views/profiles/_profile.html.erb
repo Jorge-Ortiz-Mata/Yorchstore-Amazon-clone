@@ -10,7 +10,7 @@
   </p>
 
   <p>
-  <%= image_tag(profile.avatar, width: 200 ) if profile.avatar.attached? %>
+    <%= image_tag(profile.avatar, width: 200 ) if profile.avatar.attached? %>
       <% if !profile.avatar.attached? %>
         <img src="<%= asset_path( 'no-profile.png' ) %>" width= "200px">
       <% end %>
