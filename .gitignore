@@ -34,4 +34,4 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-/config/yorch-store.json
+/config/yorch-store-2.json
