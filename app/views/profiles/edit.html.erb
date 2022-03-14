@@ -1,9 +1,15 @@
-<h1>Editing profile</h1>
-
-<%= render "form", profile: @profile %>
-
-<br>
-
-<div>
-  <%= link_to "Cancel edition.", @profile %> |
+<div style="display: flex; flex-direction:column;">
+  <div style="margin: 100px auto 100px auto; display: flex; flex-direction:column;">
+    <div style="margin: 0px auto 20px auto;">
+      <h1>Editing profile</h1>
+    </div>
+    <br>
+    <div>
+      <%= render "form", profile: @profile %>
+    </div>
+    <br>
+    <div style="margin: 0px auto 20px auto;">
+      <%= link_to "Cancel edition.", @profile, class:"ui red button" %>
+    </div>
+  </div>
 </div>

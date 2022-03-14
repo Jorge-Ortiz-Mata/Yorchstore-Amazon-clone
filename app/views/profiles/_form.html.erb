@@ -1,3 +1,5 @@
+<div class="ui equal width form">
+
 <%= form_with(model: profile) do |form| %>
   <% if profile.errors.any? %>
     <div style="color: red">
@@ -10,56 +12,67 @@
       </ul>
     </div>
   <% end %>
+  <br>
+  <div class="fields">
+    <div class="field">
+      <%= form.label :first_name, style: "display: block" %>
+      <%= form.text_field :first_name %>
+    </div>
 
-  <div>
-    <%= form.label :first_name, style: "display: block" %>
-    <%= form.text_field :first_name %>
+    <div class="field">
+      <%= form.label :last_name, style: "display: block" %>
+      <%= form.text_field :last_name %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :last_name, style: "display: block" %>
-    <%= form.text_field :last_name %>
-  </div>
-
-  <div>
+  <div class="field">
     <%= form.label :location, style: "display: block" %>
     <%= form.text_field :location %>
   </div>
 
-  <div>
+  <div class="field">
     <%= form.label 'Photo profile', style: "display: block" %>
     <%= form.file_field :avatar %>
   </div>
 
-  <div>
-    <%= form.label :genre, style: "display: block" %>
-    <%= form.text_field :genre %>
+  <div class="fields">
+    <div class="field">
+      <%= form.label :genre, style: "display: block" %>
+      <%= form.text_field :genre %>
+    </div>
+
+    <div class="field">
+      <%= form.label :cellphone, style: "display: block" %>
+      <%= form.text_field :cellphone %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :cellphone, style: "display: block" %>
-    <%= form.text_field :cellphone %>
-  </div>
-
-  <div>
+  <div class="field">
     <%= form.label :bank_account, style: "display: block" %>
     <%= form.text_field :bank_account %>
   </div>
 
-  <div>
     <%= form.label :user_card, style: "display: block" %>
-    <%= form.radio_button :user_card, "Buyer" %>
-    <%= form.label "Buyer" %> |
-    <%= form.radio_button :user_card, "Seller" %>
-    <%= form.label "Seller" %>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <%= form.radio_button :user_card, "Buyer" %>
+        <%= form.label "Buyer" %>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+      <%= form.radio_button :user_card, "Seller" %>
+      <%= form.label "Seller" %>
+      </div>
   </div>
 
-  <div>
+  <div class="field">
     <%= form.label :birth, style: "display: block" %>
     <%= form.date_field :birth %>
   </div>
-
-  <div>
-    <%= form.submit %>
+  <br>
+  <div class="field" style="text-align:center">
+    <%= form.submit class:"ui green button" %>
   </div>
 <% end %>
+</div>

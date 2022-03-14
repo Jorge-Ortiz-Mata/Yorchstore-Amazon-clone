@@ -6,7 +6,7 @@
     <div class="right menu">
     <% if !current_user %>
         <%= link_to "Sign in", new_user_session_path, class:"block mt-4 lg:inline-block lg:mt-0 text-white hover:text-cyan-200 mr-4", class:"item" %>
-        <%= link_to "Sign up", new_user_registration_path, class:"block mt-4 lg:inline-block lg:mt-0 text-white hover:text-cyan-200 mr-4", class:"item" %>
+        <%= link_to "Create account", new_user_registration_path, class:"block mt-4 lg:inline-block lg:mt-0 text-white hover:text-cyan-200 mr-4", class:"item" %>
     <% else %>
         <% if !current_user.profile.nil? %>
             <%= link_to "My car", car_path, class:"item" %>
