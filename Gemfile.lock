@@ -264,10 +264,14 @@ GEM
       ffi (~> 1.12)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
+    sassc (2.4.0-x64-mingw32)
+      ffi (~> 1.9)
     selenium-webdriver (4.1.0)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
+    semantic-ui-sass (2.4.4.0)
+      sassc
     signet (0.16.1)
       addressable (~> 2.8)
       faraday (>= 0.17.5, < 3.0)
@@ -333,6 +337,7 @@ DEPENDENCIES
   rails (~> 7.0.2, >= 7.0.2.3)
   redis (~> 4.6)
   selenium-webdriver
+  semantic-ui-sass
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails

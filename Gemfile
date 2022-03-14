@@ -34,6 +34,8 @@ gem 'google-cloud-storage'
 
 gem 'devise'
 
+gem 'semantic-ui-sass'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
