@@ -9,11 +9,13 @@
       <% if @article.user != current_user && @article.stock > 0 %>
         <%= render 'orders/form' %>
       <% elsif @article.user == current_user %>
-        <b>You own this article.</b><br><br>
+        <b>You own this article.</b><br>
       <% elsif @article.stock <= 0 %>
-        <b>There aren't many articles in stock.</b><br><br>
+        <b>There aren't many articles in stock.</b><br>
       <% end %>
-      <%= link_to "Back", root_path, class:"ui red button" %>
     </div>
+  </div>
+  <div style="text-align: center;">
+    <%= link_to "Back", root_path, class:"ui red button" %>
   </div>
 </div>

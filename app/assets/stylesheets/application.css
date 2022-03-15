@@ -40,7 +40,7 @@
 }
 
 .articleCard{
-    padding: 10px;
+    padding: 30px;
     background-color: #fffeea;
     margin: 50px;
     border-radius: 20px;
@@ -74,6 +74,15 @@
     display: flex;
     flex-direction: row;
     margin-bottom: 10px;
+}
+
+.imagesSectionCard{
+    display: flex;
+    flex-direction: row;
+}
+
+.singleImageCard{
+    margin: auto 0px auto 20px;
 }
 
 .singleAttribute{

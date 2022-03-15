@@ -29,6 +29,16 @@
             <strong>Description:</strong> <%= article.description %>
           </p>
 
+          <% if article.images.attached? %>
+            <div class="imagesSectionCard">
+              <% article.images.each do |image| %>
+                <div class="singleImageCard">
+                  <%= image_tag(image, width: 150) %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+          <br>
           <div class="articleAttributes">
             <div class="singleAttribute">
               <% if article.stock > 0 %>
