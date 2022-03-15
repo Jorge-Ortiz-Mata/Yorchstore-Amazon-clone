@@ -1,4 +1,4 @@
-# Yorchblog (Facebook clone).
+# Yorchstore (Amazon clone).
 
 Yorchstore is an app created with Rails 7.
 
