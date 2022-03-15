@@ -1,40 +1,46 @@
-<div id="<%= dom_id product %>">
-<br>
-  <p>
-    <strong>ID:</strong>
-    <%= product.id %>
-  </p>
-  <p>
-    <strong>Title:</strong>
-    <%= product.title %>
-  </p>
+<div id="<%= dom_id product %>" class="productCard">
+  <div class="ui items">
+    <div class="item" id="orderDetails">
+      <div class="ui small image">
+        <% if product.images.present? %>
+          <%= image_tag(product.images[0]) %>
+        <% else %>
+          <img src="<%= asset_path( 'item.png' ) %>">
+        <% end %>
+      </div>
+      <div>
+        <p>
+          <strong>ID:</strong>
+          <%= product.id %>
+        </p>
+        <p>
+          <strong>Title:</strong>
+          <%= product.title %>
+        </p>
 
-  <p>
-    <strong>Description:</strong>
-    <%= product.description %>
-  </p>
+        <p>
+          <strong>Description:</strong>
+          <%= product.description %>
+        </p>
 
-  <p>
-    <strong>Price:</strong>
-    <%= product.price %>
-  </p>
+        <p>
+          <strong>Price:</strong>
+          <%= product.price %>
+        </p>
 
-  <p>
-    <strong>Stock:</strong>
-    <%= product.stock %>
-  </p>
-
-  <p>
-    <% for i in 0...product.images.length %>
-      <%= image_tag(product.images[i], width: 100) %>
-    <% end %>
-  </p>
-
-    <p>
-      <% if product.user == @current_user_and_article %>
-        <%= link_to "Edit this article", edit_article_path(product) %>
-        <%= button_to "Delete article", product, method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}} %>
-      <% end %>
-    </p>
-
+        <p>
+          <strong>Stock:</strong>
+          <%= product.stock %>
+        </p>
+      </div>
+      <div>
+        <p>
+          <% if product.user == @current_user_and_article %>
+            <%= link_to "Edit this article", edit_article_path(product), class:"ui teal button" %>
+            <%= button_to "Delete article", product, method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}}, class:"ui red button" %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  </div>
 </div>

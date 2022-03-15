@@ -7,6 +7,6 @@
     Articles
 </h2>
 <br>
-  <% current_user.articles.each do |article| %>
+  <% @profile.user.articles.each do |article| %>
     <%= render 'articles/article', article: article %>
   <% end %>

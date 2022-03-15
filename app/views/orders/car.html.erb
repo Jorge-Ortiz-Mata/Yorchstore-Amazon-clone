@@ -1,8 +1,21 @@
 <%= turbo_stream_from "orders" %>
-<h2>User card.</h2>
-<%= render 'orders/usercard', user: current_user.profile %>
+<br><br><br><br><br><br>
+<h2 class="ui center aligned icon header">
+    <i class="circular id card icon"></i>
+    My cart.
+</h2>
 <br>
-<h2>My car.</h2>
+<div class="userCard">
+    <%= render 'orders/usercard', user: current_user.profile %>
+</div>
+<br>
 <div>
-    <%= render @orders %>
+    <h2 class="ui center aligned icon header">
+        <i class="circular shopping bag icon"></i>
+        My cart.
+    </h2>
+    <br>
+    <div class="articles">
+        <%= render @orders %>
+    </div>
 </div>

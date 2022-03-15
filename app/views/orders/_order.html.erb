@@ -1,33 +1,46 @@
-<div id="<%= dom_id order %>">
-    <p>
-        <strong>Order ID:</strong>
-        <%= order.id %>
-    </p>
-    <p>
-        <strong>Title:</strong>
-        <%= order.product_title %>
-    </p>
-    <p>
-        <strong>Description:</strong>
-        <%= order.product_description %>
-    </p>
-    <p>
-        <strong>Uniqueness price:</strong>
-        <%= order.article.price %>
-    </p>
-    <p>
-        <strong>Quantity:</strong>
-        <%= order.quantity %>
-    </p>
-    <p>
-        <strong>Total price:</strong>
-        <%= order.total_price %>
-    </p>
-    <div>
-        <%= link_to "Buy now!", buy_path(order: order.id) %>
-    </div>
-    <div>
-        <%= button_to "Remove article", remove_from_my_car_path(order: order), method: :delete, form: {data: {turbo_confirm: "Are you sure you want to remove this article from your car?"}} %>
+<div id="<%= dom_id order %>" class="orderCard">
+    <div class="ui items">
+        <div class="item" id="orderDetails">
+            <div class="ui small image">
+                <% if order.article.images.present? %>
+                <%= image_tag(order.article.images[0]) %>
+                <% else %>
+                <img src="<%= asset_path( 'item.png' ) %>">
+                <% end %>
+            </div>
+            <div>
+                <p>
+                    <strong>Title:</strong>
+                    <%= order.product_title %>
+                </p>
+                <p>
+                    <strong>Order ID:</strong>
+                    <%= order.id %>
+                </p>
+                <p>
+                    <strong>Description:</strong>
+                    <%= order.product_description %>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <strong>Uniqueness price:</strong>
+                    <%= order.article.price %>
+                </p>
+                <p>
+                    <strong>Quantity:</strong>
+                    <%= order.quantity %>
+                </p>
+                <p>
+                    <strong>Total price:</strong>
+                    <%= order.total_price %>
+                </p>
+            </div>
+            <div>
+                <%= link_to "Buy now!", buy_path(order: order.id), class:"ui green button" %><br><br><br>
+                <%= button_to "Remove article", remove_from_my_car_path(order: order), method: :delete, form: {data: {turbo_confirm: "Are you sure you want to remove this article from your car?"}}, class:"ui red button" %>
+            </div>
+        </div>
     </div>
 </div>
 <br>

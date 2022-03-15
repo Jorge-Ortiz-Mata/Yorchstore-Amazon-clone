@@ -1,4 +1,4 @@
-<div id="<%= dom_id article %>">
+<div id="<%= dom_id article %>" class="articleCard">
   <div class="ui items">
     <div class="item">
       <div class="ui small image">
@@ -9,14 +9,14 @@
         <% end %>
       </div>
       <div class="middle aligned content">
-        <div>
+        <div class="mainSectionCard">
           <div>
-            <div class="header">
+            <div class="ui small header">
               Article: <strong><%= article.title %></strong>
             </div>
-            <p>
+            <div>
               <small><strong>ID:</strong> <%= article.id %></small>
-            </p>
+            </div>
           </div>
           <div>
             <p>
@@ -28,43 +28,45 @@
           <p>
             <strong>Description:</strong> <%= article.description %>
           </p>
+
           <div class="articleAttributes">
-            <p>
+            <div class="singleAttribute">
               <% if article.stock > 0 %>
                 <span class="ui green label">Available.</span>
               <% else %>
                 <span class="ui red label">Unavailable.</span>
               <% end %>
-            </p>
-            <p class="ui tag labels">
-              <strong>Price:</strong>
-              <span class="ui label"><%= article.price %></span>
-            </p>
-            
-            <p>
+            </div>
+            <div class="singleAttribute">
+              <p class="ui tag labels">
+                <strong>Price:</strong>
+                <span class="ui label"><%= article.price %></span>
+              </p>
+            </div>
+            <div class="singleAttribute">
               <strong>Stock:</strong>
               <span class="ui label"><%= article.stock %></span>
-            </p>
+            </div>
           </div>
-          <p>
-              <div class="ui list">
-                <div class="item" style="display:flex;">
-                  <div>
-                    <%= image_tag(article.user.profile.avatar, width: 50, class:"roundedImage" ) if article.user.profile.avatar.attached? %>
-                    <% if !article.user.profile.avatar.attached? %>
-                      <img src="<%= asset_path( 'no-profile.png' ) %>" width= "50px" >
-                    <% end %>
-                  </div>
-                  <div class="content" style="margin: auto auto auto 10px">
-                    <span class="header"><%= link_to "#{article.user.profile.first_name} #{article.user.profile.last_name}", profile_path(article.user.profile) %></span>
-                    <small><div class="description">Created: <b><%= time_ago_in_words(article.created_at) %>.</b></div></small>
-                  </div>
+
+          <div>
+            <div class="ui list">
+              <div class="item" style="display:flex;">
+                <div>
+                  <%= image_tag(article.user.profile.avatar, width: 50, class:"roundedImage" ) if article.user.profile.avatar.attached? %>
+                  <% if !article.user.profile.avatar.attached? %>
+                    <img src="<%= asset_path( 'no-profile.png' ) %>" width= "50px" >
+                  <% end %>
+                </div>
+                <div class="content" style="margin: auto auto auto 10px">
+                  <span class="header"><%= link_to "#{article.user.profile.first_name} #{article.user.profile.last_name}", profile_path(article.user.profile) %></span>
+                  <small><div class="description">Created: <b><%= time_ago_in_words(article.created_at) %>.</b></div></small>
                 </div>
               </div>
-            </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<br><br>

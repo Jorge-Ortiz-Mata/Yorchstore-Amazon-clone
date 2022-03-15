@@ -1,12 +1,14 @@
-<%= form_with url: add_to_my_car_path, method: :get do |form|  %>
-    <div>
-        <%= form.label 'Quantity: ' %>
-        <%= form.number_field :quantity %>
-    </div>
-    <div>
-        <%= form.hidden_field :article, :value => @article.id %>
-    </div>
-    <div>
-        <%= form.submit 'Add' %>
-    </div>
-<% end %>
+<div class="ui form">
+    <%= form_with url: add_to_my_car_path, method: :get do |form|  %>
+        <div class="field">    
+            <%= form.label 'Quantity: ', style: "display: block" %>
+            <%= form.number_field :quantity %>
+        </div><br>
+        <div>
+            <%= form.hidden_field :article, :value => @article.id %>
+        </div>
+        <div>
+            <%= form.submit 'Add to my cart', class:"ui green button" %>
+        </div><br>
+    <% end %>
+</div>

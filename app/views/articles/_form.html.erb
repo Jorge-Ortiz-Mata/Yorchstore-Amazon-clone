@@ -1,41 +1,45 @@
-<%= form_with(model: article) do |form| %>
-  <% if article.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+<div class="ui form">
+  <%= form_with(model: article) do |form| %>
+    <% if article.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
 
-      <ul>
-        <% article.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% article.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :title, style: "display: block" %>
+      <%= form.text_field :title, placeholder: "Samsung Smart TV." %>
+    </div>
+
+    <div class="field">
+      <%= form.label :description, style: "display: block" %>
+      <%= form.text_area :description %>
+    </div>
+
+    <div class="field">
+      <%= form.label :price, style: "display: block" %>
+      <%= form.text_field :price, placeholder: "469.69" %>
+    </div>
+
+    <div class="field">
+      <%= form.label 'Amount of articles', style: "display: block" %>
+      <%= form.number_field :stock, placeholder: "10" %>
+    </div>
+
+    <div class="field">
+      <%= form.label "Images", style: "display: block" %>
+      <%= form.file_field :images, multiple: true %>
+    </div><br>
+
+    <div>
+      <%= form.submit class:"ui green button" %>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.text_field :price %>
-  </div>
-
-  <div>
-    <%= form.label 'Amount of articles', style: "display: block" %>
-    <%= form.number_field :stock %>
-  </div>
-
-  <div>
-    <%= form.file_field :images, multiple: true %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+  <br>
+</div>

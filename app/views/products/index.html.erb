@@ -1,4 +1,11 @@
-<h2>My products.</h2>
+<br><br>
+<div>
+    <h2 class="ui center aligned icon header">
+        <i class="circular shopping bag icon"></i>
+        My products.
+    </h2>
+</div>
+<br>
 <div>
 <% @products.each do |product| %>
     <%= render 'products/product', product: product %>

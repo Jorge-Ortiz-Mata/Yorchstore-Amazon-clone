@@ -1,10 +1,10 @@
-<h1>Editing article</h1>
-
-    <%= render "form", article: @article %>
-
-
-<br>
-
-<div>
-  <%= link_to "Back", root_path %> |
+<div style="display: flex; flex-direction: column; margin: 50px 50px 100px 50px; padding: 30px;">
+  <div style="margin: 0px auto 50px auto;">
+    <h1>Editing article</h1>
+  </div>
+  <%= render "form", article: @article %>
+  <div>
+    <%= link_to "Cancel", my_products_path, class:"ui red button" %>
+  </div>
 </div>
+<br>

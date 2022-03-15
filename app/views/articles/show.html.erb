@@ -1,19 +1,19 @@
 <%= turbo_stream_from "articles" %>
-<%= render @article %>
-<% if @article.user != current_user && @article.stock > 0 %>
- <div>
-  <%= render 'orders/form' %>
- </div>
- <% elsif @article.user == current_user %>
-    <div>
-      You own this article.
+<div style="display: flex; flex-direction: column; margin: 100px 50px 50px 50px; padding: 30px;">
+  <div style="margin: 0px auto 50px auto;">
+    <h2><%= @article.title %></h2>
+  </div>
+  <div style="margin: 0px auto 50px auto; display:flex; flex-direction: column;">
+    <%= render @article %>
+    <div style="margin: 0px auto 20px auto;">
+      <% if @article.user != current_user && @article.stock > 0 %>
+        <%= render 'orders/form' %>
+      <% elsif @article.user == current_user %>
+        <b>You own this article.</b><br><br>
+      <% elsif @article.stock <= 0 %>
+        <b>There aren't many articles in stock.</b><br><br>
+      <% end %>
+      <%= link_to "Back", root_path, class:"ui red button" %>
     </div>
-<% elsif @article.stock <= 0 %>
-    <div>
-        There aren´t many articles in stock.
-    </div>
- <% end %>
-<div>
-  <%= link_to "Back", root_path %>
+  </div>
 </div>
-

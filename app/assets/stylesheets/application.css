@@ -34,6 +34,19 @@
     background-color: #000000cf;
 }
 
+.articles{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.articleCard{
+    padding: 10px;
+    background-color: #fffeea;
+    margin: 50px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px 2px #b5b5b5;
+}
+
 .mainDescription{
     margin: 150px auto auto auto;
     display: flex;
@@ -60,7 +73,11 @@
 .articleAttributes{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.singleAttribute{
+    margin-right: 20px;
 }
 
 .roundedImage{
@@ -103,4 +120,46 @@
 .userHeade{
     font-weight: 700;
     font-size: 30px;
+}
+
+.mainSectionCard{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.userCard{
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+    background-color: #fffeea;
+    box-shadow: 0px 0px 5px 2px #b5b5b5;
+}
+
+.dataCard{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.dataCard div {
+    margin: 5px auto auto 10px;
+}
+
+.orderCard, .productCard{
+    background-color: #f3f3f3;
+    box-shadow: 0px 0px 5px 2px #8a8a8a;
+    margin: 20px;
+    padding: 30px;
+    border-radius: 30px;
+}
+
+#orderDetails, #productDetails{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#orderDetails div{
+    margin: 10px;
 }

@@ -1,54 +1,45 @@
 <div id="<%= dom_id user %>">
-  <p>
-    <strong>First name:</strong>
-    <%= user.first_name %>
-  </p>
-
-  <p>
-    <strong>Last name:</strong>
-    <%= user.last_name %>
-  </p>
-
-  <p>
-  <%= image_tag(user.avatar, width: 200 ) if user.avatar.attached? %>
-      <% if !user.avatar.attached? %>
-        <img src="<%= asset_path( 'no-profile.png' ) %>" width= "200px">
-      <% end %>
-  </p>
-
-  <p>
-    <strong>Location:</strong>
-    <%= user.location %>
-  </p>
-
-  <p>
-    <strong>Genre:</strong>
-    <%= user.genre %>
-  </p>
-
-  <p>
-    <strong>Cellphone:</strong>
-    <%= user.cellphone %>
-  </p>
-
-  <p>
-    <strong>Bank account:</strong>
-    <%= user.bank_account %>
-  </p>
-
-  <p>
-    <strong>Bank money:</strong>
-    <%= user.bank_money %>
-  </p>
-
-  <p>
-    <strong>User card:</strong>
-    <%= user.user_card %>
-  </p>
-
-  <p>
-    <strong>Birth:</strong>
-    <%= user.birth %>
-  </p>
-
+  <div class="ui items">
+    <div class="item">
+      <div class="ui small image imageCard">
+        <%= image_tag(user.avatar, width: 120, class:"roundedImage" ) if user.avatar.attached? %>
+        <% if !user.avatar.attached? %>
+          <img src="<%= asset_path( 'no-profile.png' ) %>" width= "120px">
+        <% end %>
+      </div>
+      <section class="dataCard">
+        <div>
+          <p>
+            <strong>User:</strong>
+            <%= user.first_name %> 
+            <%= user.last_name %>
+          </p>
+        </div>
+        <div>
+          <p>
+            <strong>Cellphone:</strong>
+            <%= user.cellphone %>
+          </p>
+        </div>
+        <div>
+          <p>
+            <strong>Bank account:</strong>
+            <%= user.bank_account %>
+          </p>
+        </div>
+        <div>
+          <p>
+            <strong>Bank money:</strong>
+            <span style="color: #007517; font-weight: 700;"><%= user.bank_money %></span>
+          </p>
+        </div>
+        <div>
+          <p>
+            <strong>User card:</strong>
+            <%= user.user_card %>
+          </p>
+        </div>
+      </section>
+    </div>
+  </div>
 </div>
