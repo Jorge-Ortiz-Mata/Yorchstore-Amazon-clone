@@ -1,24 +1,51 @@
-# README
+# Yorchblog (Facebook clone).
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Yorchstore is an app created with Rails 7.
 
-Things you may want to cover:
+## App.
 
-* Ruby version
+Heroku link: https://yorch-store.herokuapp.com/
 
-* System dependencies
+## Description
 
-* Configuration
+This app was developed using Ruby on Rails.
+In this app, you can sign in and sign up using your
+Google account. Once you sign up and confirm your account, 
+you will create your own profile and upload a profile photo. 
+You will be able to create posts, comment posts and click 
+in like button.
 
-* Database creation
+You will be able to sign up as a buyer or as a seller. 
+Depending on the option, you can create or buy products.
 
-* Database initialization
+All the updates in the website will occur instantaneously
+using Hotwire.
 
-* How to run the test suite
+Have a wonderful day! :smiley:
+Greetings :love_you_gesture:
 
-* Services (job queues, cache servers, search engines, etc.)
+## Softwares and frameworks.
 
-* Deployment instructions
+* Ruby: 3.0.1
+* Ruby on Rails: 7.0.2
+* Google Cloud Storage.
+* Hotwire.
+* Semanti UI.
+* PostgreSQL.
+* VSCode.
+* Windows 10.
 
-* ...
+## Author:
+
+* Jorge Ortiz Mata.
+* San Luis Potosí S.L.P. México
+* ortiz.mata.jorge@gmail.com
+* +52 (444) 576 3034.
+
+## Images.
+
+![](app/assets/images/Yorch-store-1.PNG)
+-----
+![](app/assets/images/Yorch-store-2.PNG)
+-----
+![](app/assets/images/Yorch-store-3.PNG)
